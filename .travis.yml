@@ -1,0 +1,28 @@
+language: objective-c
+osx_image: xcode8
+
+env:
+  global:
+    - PROJECT=KGNMath
+  matrix:
+    - DESTINATION="OS=9.3,name=iPhone 6s Plus" SCHEME=$PROJECT-iOS SDK=iphonesimulator TEST=test
+    - DESTINATION="OS=9.2,name=Apple TV 1080p" SCHEME=$PROJECT-tvOS SDK=appletvsimulator TEST=test
+    - DESTINATION="OS=2.2,name=Apple Watch - 42mm" SCHEME=$PROJECT-watchOS SDK=watchsimulator TEST=
+
+  script:
+    - xcodebuild $TEST -project "$PROJECT.xcodeproj" -scheme "$SCHEME" -sdk $SDK -destination "$DESTINATION"
+
+  before_deploy:
+    - carthage build --no-skip-current
+    - carthage archive $PROJECT
+
+# TODO: needs api_key for repo
+#deploy:
+#  provider: releases
+#  api_key:
+#    secure:
+#  file: $PROJECT.framework.zip
+#  skip_cleanup: true
+#  on:
+#    repo: kgn/$PROJECT
+#    tags: true
