@@ -2,6 +2,7 @@
 
 `KGNMath` is a collection of helpful common math functions.
 
+[![Swift 3](http://img.shields.io/badge/Swift-3-orange.svg)]()
 [![Release](https://img.shields.io/github/release/kgn/KGNMath.svg)](/releases)
 [![License](http://img.shields.io/badge/License-MIT-lightgrey.svg)](/LICENSE)
 
@@ -24,7 +25,7 @@ github "kgn/KGNMath"
 
 ## Overview
 
-4 Simple, common, math functions that are useful but missing from the Swift standard library.
+4 simple, common, math functions that are useful but missing from the Swift standard library.
 
 - `clamp(value, lower, upper)`
 - `mix(lower, upper, ratio)`
@@ -41,6 +42,6 @@ github "kgn/KGNMath"
 - [X] Documentation
 - [X] AppleTV
 - [X] AppleWatch
-- [ ] Prebuilt Frameworks
+- [X] Prebuilt Frameworks
 - [ ] Travis Test Matrix
 
